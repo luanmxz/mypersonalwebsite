@@ -1,0 +1,141 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'home/css/home.css' %}">
+    <title>Luan Marcene</title>
+</head>
+    <body>
+        <nav class="navbar">
+            <ul class="nav-links">
+                <li class="active"><a href="#homepage">Home</a></li>
+                <li><a href="#aboutme">About Me</a></li>
+                <li><a href="#project">Projects</a></li>
+                <li><a href="#contact">Contacts</a></li>
+            </ul>
+            <img src="{% static 'home/img/menu-btn.png' %}" alt"" class="menu-btn">
+            <a href="#aboutme"><img  src="{% static 'home/img/githubicon.png' %}" alt"" class="gogithub"></a>
+        </nav>
+        <header id="homepage">
+            <div class="header-content">
+                <h2>Hi! I'm Luan Marcene.</h2>
+                <a href="#tela2" class="btn1">L</a>
+            </div>
+        </header>
+
+        <section id="aboutme">
+            <div class="title">
+                <h1>About me</h1>
+                <div class="line"></div>
+                <br>
+                <h3>I'm just a 23 year old guy who likes to program and solve problems.
+                    <span style="color:crimson">Solving code problems is stressful but highly rewarding and fun</span> at the same time.
+                    If you're a dev, you probably agree with me.
+                </h3>
+                <br>
+                <div class="line"></div>
+                <br>
+                <h2 class="threewhat"> What i <span style="color:crimson">know</span>, <span style="color:crimson">study</span> and what im <span style="color:crimson">learning</span>.
+                </h2>
+                <br>
+                <h3>Python, Django Framework, HTML, CSS and JS.
+                </h3>
+                <h6>Learning more every day</h6>
+            </div>
+        </section>
+
+        <section id="project">
+            <div class="title2">
+                <h1>Projects</h1>
+                <div class="line"></div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img src="{% static 'home/img/mooncloud.jpg' %}">
+                    <h4>Project 1</h4>
+                    <p>Website Responsivo HTML CSS JS PYTHON DJANGO</p>
+                    <a href="#" class="btn2">View More</a>
+                </div>
+                <br>
+                <div class="col">
+                    <img src="{% static 'home/img/mooncloud.jpg' %}">
+                    <h4>Project 2</h4>
+                    <p>link to github</p>
+                    <a href="#" class="btn2">View More</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <img src="{% static 'home/img/mooncloud.jpg' %}">
+                    <h4>Project 3</h4>
+                    <p>Animated Website HTML CSS JS PYTHON DJANGO</p>
+                    <a href="#" class="btn2">View More</a>
+                </div>
+                <br>
+                <div class="col">
+                    <img src="{% static 'home/img/mooncloud.jpg' %}">
+                    <h4>Project 4</h4>
+                    <p>link to github</p>
+                    <a href="#" class="btn2">View More</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="tela4">
+            <div class="title3">
+                <h1>Contact</h1>
+                <div class="line"></div>
+                <br><br><br><br>
+            </div>
+            <div class="container">
+                <form onsubmit="emailsend(); reset(); return false;">
+                    <h3>Send me a message</h3>
+                    <input type="text" id="name" placeholder="Name" required>
+                    <input type="text" id="email" placeholder="E-mail" required>
+                    <input type="text" id="number" placeholder="Whatsapp or Telegram">
+                    <textarea id="message" rows="4" placeholder="Your message here" required></textarea>
+                    <button type="submit">Send</button>
+                </form>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer">
+                <p>Developed by Luan Marcene</p>
+                <p>Design inspired by Gowtham Tirri<p>
+            </div>
+        </footer>
+
+
+        <script>
+            const menuBtn = document.querySelector('.menu-btn')
+            const navlinks = document.querySelector('.nav-links')
+
+            menuBtn.addEventListener('click',()=>{
+                navlinks.classList.toggle('mobile-menu')
+            })
+        </script>
+        <script src="https://smtpjs.com/v3/smtp.js"></script>
+        <script>
+            function emailsend(){
+                Email.send({
+                    Host : "smtp.gmail.com",
+                    Username : "luanmarcenemxz22@gmail.com",
+                    Password : "********",
+                    To : 'otheremail',
+                    From : document.getElementById("email").value,
+                    Subject : "Nova mensagem Website",
+                    Body : "Name" + document.getElementById("name").value
+                        + "<br> Email: " + document.getElementById("email").value
+                        + "<br> Number: " + document.getElementById("number").value
+                        + "<br> Message: " + document.getElementById("message").value
+                }).then(
+                    message => alert("Your message has sent!")
+                );
+            }
+        </script>
+    </body>
+</html>
